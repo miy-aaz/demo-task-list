@@ -7,10 +7,22 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 {% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
 
 {% block header %}
+    {% include "includes/header.html" %}
 
-    {{ govukHeader() }}
-    {{ govukServiceNavigation({
-        serviceName: serviceName
-    })}}
+    {{ govukPhaseBanner({
+        tag: {
+            text: "Beta"
+        },
+        html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.',
+        classes: 'govuk-width-container'
+    }) }}
+{% endblock %}
 
+{% block footer %}
+    {% include "includes/footer.html" %}
+{% endblock %}
+    
+{% block scripts %}
+{{ super() }}
+<script src="/public/javascripts/components/autocomplete.js"></script>
 {% endblock %}
