@@ -13,51 +13,72 @@
     <h2 class="govuk-heading-s govuk-!-margin-top-6 govuk-!-margin-bottom-6">Application incomplete</h2>
     <p class="govuk-!-margin-bottom-6">You've completed 0 of 3 sections</p>
 
-    <h2 class="govuk-heading-m">About you</h2>
-        <ul class="govuk-task-list">
-          <li class="govuk-task-list__item govuk-task-list__item--with-link">
-            <div class="govuk-task-list__name-and-hint">
-              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="before-you-start-1-status">
-                Personal details
-              </a>
-            </div>
-            <div class="govuk-task-list__status" id="before-you-start-1-status">
-              <strong class="govuk-tag govuk-tag--blue">
-                Not yet started
-            </strong>
-            </div>
-          </li>
-        </ul>
-        <h2 class="govuk-heading-m govuk-!-margin-top-5">Juggling experience</h2>
-        <ul class="govuk-task-list">
-          <li class="govuk-task-list__item govuk-task-list__item--with-link">
-            <div class="govuk-task-list__name-and-hint">
-              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="before-you-start-1-status">
-                Personal details
-              </a>
-            </div>
-            <div class="govuk-task-list__status" id="before-you-start-1-status">
-             <strong class="govuk-tag govuk-tag--blue">
-                Not yet started
-            </strong>
-            </div>
-          </li>
-        </ul>
-        <h2 class="govuk-heading-m govuk-!-margin-top-5">Evidence</h2>
-        <ul class="govuk-task-list">
-          <li class="govuk-task-list__item govuk-task-list__item--with-link">
-            <div class="govuk-task-list__name-and-hint">
-              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="before-you-start-1-status">
-                Evidence
-              </a>
-            </div>
-            <div class="govuk-task-list__status" id="before-you-start-1-status">
-              <strong class="govuk-tag govuk-tag--blue">
-                Not yet started
-            </strong>
-            </div>
-          </li>
-        </ul>
+    <h3 class="govuk-heading-m">About you</h3>
+
+      {{ govukTaskList({
+        idPrefix: "about-you",
+        items: [
+          {
+            title: {
+              text: "Personal details"
+            },
+            href: "/",
+            status: {
+              tag: {
+              text: "Not yet started",
+              classes: "govuk-tag--blue"
+              }
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-5">Experience</h2>
+
+      {{ govukTaskList({
+        idPrefix: "your-experience",
+        items: [
+          {
+            title: {
+              text: "Your experience"
+            },
+            href: "/",
+            status: {
+              tag: {
+              text: "Not yet started",
+              classes: "govuk-tag--blue"
+              }
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-5">Evidence</h2>
+      {{ govukTaskList({
+        idPrefix: "evidence",
+        items: [
+          {
+            title: {
+              text: "Evidence"
+            },
+            href: "/",
+            status: {
+              tag: {
+              text: "Not yet started",
+              classes: "govuk-tag--blue"
+              }
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">Review application</h2>
+
+      {{ govukButton({
+        text: "Review and send",
+        href: '/application/check'
+      }) }}
+    
   
  </div>
 </div>
