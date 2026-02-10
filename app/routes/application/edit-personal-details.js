@@ -12,6 +12,10 @@ module.exports = router => {
         res.redirect('/application/edit-personal-details/check')
     })
 
+    router.post('/application/edit-personal-details/check', (req, res) => {
+        res.redirect('/application')
+    })
+
 
 
 

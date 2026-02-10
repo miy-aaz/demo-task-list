@@ -4,6 +4,8 @@ module.exports = router => {
         res.render('application/show')
     })
 
+    
+
 
 
 

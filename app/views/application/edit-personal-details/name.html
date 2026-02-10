@@ -32,7 +32,7 @@
         hint: {
           text: "Or given name"
         },
-        value: data.new.firstName
+        value: data.personalDetails.firstName
       }) }}
 
       {{ govukInput({
@@ -45,13 +45,13 @@
         hint: {
           text: "Or family name"
         },
-        value: data.new.lastName
+        value: data.personalDetails.lastName
       }) }}
 
 
      
       {{ govukButton({
-        text: "Continue"
+        text: "Save and continue"
       }) }}
     </form>
   
