@@ -18,57 +18,57 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <span class="govuk-caption-l">Personal details</span>
+    <span class="govuk-caption-l">Juggling experience</span>
     <h1 class="govuk-heading-l">{{pageName}}  </h1>
 
     {{ govukSummaryList({
       rows: [
         {
           key: {
-            text: "Your name"
+            text: "How many balls can you juggle?"
           },
           value: {
-            text: data.personalDetails.firstName + " " + data.personalDetails.lastName          },
+            text: data.experience.numberOfBalls         },
           actions: {
             items: [
               {
-                href: "/application/edit-personal-details/name",
+                href: "/application/edit-experience/juggling-balls",
                 text: "Change",
-                visuallyHiddenText: "Your name"
+                visuallyHiddenText: "Number of balls"
               }
             ]
           }
         },
         {
           key: {
-            text: "Phone number"
+            text: "What is you rmost impressive juggling trick?"
           },
           value: {
-            text: data.personalDetails.telephone
+            text: data.experience.trick
           },
           actions: {
             items: [
               {
-                href: "/application/edit-personal-details/telephone",
+                href: "/application/edit-experience/juggling-trick",
                 text: "Change",
-                visuallyHiddenText: "Phone number"
+                visuallyHiddenText: "Juggling trick"
               }
             ]
           }
         },
         {
           key: {
-            text: "Address"
+            text: "When did you start juggling?"
           },
           value: {
-            html: address
+            html: data.experience.startDate | isoDateFromDateInput | govukDate
           },
           actions: {
             items: [
               {
-                href: "/application/edit-personal-details/address",
+                href: "/application/edit-experience/start-date",
                 text: "Change",
-                visuallyHiddenText: "Address"
+                visuallyHiddenText: "Juggling start-date"
               }
             ]
           }
