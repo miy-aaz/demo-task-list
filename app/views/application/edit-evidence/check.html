@@ -1,0 +1,112 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = "Check details and confirm your answers" %}
+
+{% block beforeContent %}
+    {{ govukBackLink({
+    text: "Back",
+    href: "/application"
+  }) }}
+{% endblock %}
+
+  
+{% block content %}
+
+{% set address %}
+  {{ appAddress({ address: data.personalDetails.address })}}
+{% endset %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-l">Juggling experience</span>
+    <h1 class="govuk-heading-l">{{pageName}}  </h1>
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "How many balls can you juggle?"
+          },
+          value: {
+            text: data.experience.numberOfBalls         },
+          actions: {
+            items: [
+              {
+                href: "/application/edit-experience/juggling-balls",
+                text: "Change",
+                visuallyHiddenText: "Number of balls"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "What is you rmost impressive juggling trick?"
+          },
+          value: {
+            text: data.experience.trick
+          },
+          actions: {
+            items: [
+              {
+                href: "/application/edit-experience/juggling-trick",
+                text: "Change",
+                visuallyHiddenText: "Juggling trick"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "When did you start juggling?"
+          },
+          value: {
+            html: data.experience.startDate | isoDateFromDateInput | govukDate
+          },
+          actions: {
+            items: [
+              {
+                href: "/application/edit-experience/start-date",
+                text: "Change",
+                visuallyHiddenText: "Juggling start-date"
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
+
+    <form novalidate method="post">
+      {{ govukRadios({
+        name: "[experience][status]",
+        fieldset: {
+          legend: {
+            text: "Have you completed this section?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        hint: {
+          text: "You can still make changes to a completed section"
+        },
+        value: data.experience.status,
+        items: [
+          {
+            value: "Completed",
+            text: "Yes I've completed this section"
+          },
+          {
+            value: "Incomplete",
+            text: "No I'll come back to it later"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+    </form>
+ </div>
+</div>
+
+{% endblock %}
