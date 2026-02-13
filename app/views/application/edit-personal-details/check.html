@@ -76,12 +76,36 @@
       ]
     }) }}
 
-    
+    <form novalidate method="post">
+      {{ govukRadios({
+        name: "[personalDetails][status]",
+        fieldset: {
+          legend: {
+            text: "Have you completed this section?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        hint: {
+          text: "You can still make changes to a completed section"
+        },
+        value: data.personalDetails.status,
+        items: [
+          {
+            value: "Completed",
+            text: "Yes I've completed this section"
+          },
+          {
+            value: "Incomplete",
+            text: "No I'll come back to it later"
+          }
+        ]
+      }) }}
 
-    
-
-    
-  
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+    </form>
  </div>
 </div>
 
