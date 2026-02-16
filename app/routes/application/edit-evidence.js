@@ -30,10 +30,7 @@ module.exports = router => {
             req.session.data.evidence.files[uuidv4()] = {
             filename: nextFile
             }
-            
         }
-
-
         res.redirect('/application/edit-evidence/check-files')
     })
 
