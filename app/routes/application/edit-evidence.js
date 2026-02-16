@@ -1,5 +1,5 @@
 const _ = require('lodash')
-const { v4: uuidv4 } = require('uuid')
+const { v4: uuidv4 } = require('uuid');
 
 module.exports = router => {
 
@@ -30,6 +30,7 @@ module.exports = router => {
             req.session.data.evidence.files[uuidv4()] = {
             filename: nextFile
             }
+            
         }
 
 
@@ -43,17 +44,6 @@ module.exports = router => {
             res.redirect('/application/edit-evidence/check')
         }
     })
-
-
-
-   
-
-
-
-
-
-
-
 
 
 }
