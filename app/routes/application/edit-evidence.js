@@ -12,7 +12,27 @@ module.exports = router => {
     })
 
     router.post('/application/edit-evidence/upload', (req, res) => {
-        //complex
+
+        let files = [
+            'trick-performance.mp4',
+            'juggling-show',
+            'testimonial.mp3'
+        ]
+
+        if(!req.session.data.evidence.files) {
+            req.session.data.evidence.files = {}
+        }
+
+        let filesCount = _.size(req.session.data.evidence.files)
+        let nextFile = files[filesCount]
+
+        if(nextFile) {
+            req.session.data.evidence.files[uuidv4()] = {
+            filename: nextFile
+            }
+        }
+
+
         res.redirect('/application/edit-evidence/check-files')
     })
 
