@@ -1,0 +1,54 @@
+{{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "How many balls can you juggle?"
+          },
+          value: {
+            text: data.experience.numberOfBalls         },
+          actions: {
+            items: [
+              {
+                href: "/application/edit-experience/juggling-balls",
+                text: "Change",
+                visuallyHiddenText: "Number of balls"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "What is you rmost impressive juggling trick?"
+          },
+          value: {
+            text: data.experience.trick
+          },
+          actions: {
+            items: [
+              {
+                href: "/application/edit-experience/juggling-trick",
+                text: "Change",
+                visuallyHiddenText: "Juggling trick"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "When did you start juggling?"
+          },
+          value: {
+            html: data.experience.startDate | isoDateFromDateInput | govukDate
+          },
+          actions: {
+            items: [
+              {
+                href: "/application/edit-experience/start-date",
+                text: "Change",
+                visuallyHiddenText: "Juggling start-date"
+              }
+            ]
+          }
+        }
+      ]
+}) }}
