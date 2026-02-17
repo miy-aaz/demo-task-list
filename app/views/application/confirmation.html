@@ -13,7 +13,9 @@
       html: "Your reference number is<br><strong>ABC</strong>"
     }) }}
 
-    <p>We have sent you a confirmation email</p>
+    {{data | log}}
+
+    <p>We have sent you a confirmation email. This will a include a link to <a href="#">view your application</a>.</p>
 
     <h2 class="govuk-heading-m">What happens next</h2>
     <p>We've sent your application to the Juggling Regulation Office</p>

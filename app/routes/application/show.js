@@ -1,7 +1,10 @@
 module.exports = router => {
 
     router.get('/application', (req, res) => {
-        let sections = [
+        if(req.session.data.sentDate) {
+            res.render('application/show--submitted')
+        } else {
+            let sections = [
             'personalDetails',
             'experience',
             'evidence'
@@ -22,6 +25,8 @@ module.exports = router => {
         res.render('application/show', {
             completedSectionsCount
         })
+
+        }
 
     })
     
