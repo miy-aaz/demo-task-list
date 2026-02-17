@@ -70,7 +70,7 @@
 
     <form novalidate method="post">
       {{ govukRadios({
-        name: "[experience][status]",
+        name: "[evidence][status]",
         fieldset: {
           legend: {
             text: "Have you completed this section?",
@@ -81,7 +81,7 @@
         hint: {
           text: "You can still make changes to a completed section"
         },
-        value: data.experience.status,
+        value: data.evidence.status,
         items: [
           {
             value: "Completed",

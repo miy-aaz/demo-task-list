@@ -23,10 +23,13 @@
               text: "Personal details"
             },
             href: "/application/edit-personal-details/name",
+            status: {
               tag: {
-              text: data.personalDetails.status or "Not yet started",
-              classes: "Completed" | statusColour
+                text: data.personalDetails.status or "Not yet started",
+                classes: "govuk-tag--blue",
+                colour: data.personalDetails.status | statusColour
               }
+            }
           }
         ]
       }) }}
@@ -41,9 +44,12 @@
               text: "Juggling experience"
             },
             href: "/application/edit-experience/juggling-balls",
-            tag: {
-               text: "Not yet started",
-               colour: data.experience.status | statusColour
+            status: {
+              tag: {
+                text: data.experience.status or "Not yet started",
+                classes: "govuk-tag--blue",
+                colour: data.experience.status | statusColour
+              }
             }
           }
         ]
@@ -60,8 +66,9 @@
             href: "/application/edit-evidence/has-evidence",
             status: {
               tag: {
-              text: "Not yet started",
-              classes: "govuk-tag--blue"
+              text: data.evidence.status or "Not yet started",
+              classes: "govuk-tag--blue",
+              colour: data.evidence.status | statusColour
               }
             }
           }

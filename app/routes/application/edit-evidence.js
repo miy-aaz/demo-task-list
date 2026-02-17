@@ -63,5 +63,9 @@ module.exports = router => {
         }
     })
 
+    router.post('/application/edit-evidence/check', (req, res) => {
+            res.redirect('/application')
+    })
+
 
 }
