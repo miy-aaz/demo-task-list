@@ -1,15 +1,41 @@
 
+const _ = require('lodash')
+
 exports.getPersonalDetailsStatus = (data) => {
 
+    if(_.get(data, 'personalDetails.status')) {
+        return data.personalDetails.status
+    }
 
+    if(_.get(data, 'personalDetails.firstName')) {
+        return 'Incomplete' 
+    }
 
-    //if there is a status from radios use that
-    //if there is a first name then it is incomplete
-    //otherwise it should be not yet started
+    return 'Not started'
+}
 
+exports.getExperienceStatus = (data) => {
 
+    if(_.get(data, 'experience.status')) {
+        return data.experience.status
+    }
 
-    //data.personalDetails.status
+    if(_.get(data, 'experience.numberOfBalls')) {
+        return 'Incomplete' 
+    }
 
-    //data.personalDetials.firstName
+    return 'Not started'
+}
+
+exports.getEvidenceStatus = (data) => {
+
+    if(_.get(data, 'evidence.status')) {
+        return data.evidence.status
+    }
+
+    if(_.get(data, 'evidence.hasEvidence')) {
+        return 'Incomplete' 
+    }
+
+    return 'Not started'
 }

@@ -26,8 +26,8 @@
             href: "/application/edit-personal-details/name",
             status: {
               tag: {
-                text: data.personalDetails.status or "Not started",
-                classes: data.personalDetails.status | statusColour
+                text: personalDetailsStatus,
+                classes: personalDetailsStatus | statusColour
               }
             }
           }
@@ -45,8 +45,8 @@
             href: "/application/edit-experience/juggling-balls",
             status: {
               tag: {
-                text: data.experience.status or "Not started",
-                classes: data.experience.status | statusColour
+                text: experienceStatus or "Not started",
+                classes: experienceStatus | statusColour
               }
             }
           }
@@ -63,8 +63,8 @@
             href: "/application/edit-evidence/has-evidence",
             status: {
               tag: {
-                text: data.evidence.status or "Not started",
-                classes: data.evidence.status | statusColour
+                text: evidenceStatus or "Not started",
+                classes: evidenceStatus | statusColour
               }
             }
           }
