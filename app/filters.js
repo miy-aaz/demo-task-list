@@ -6,18 +6,16 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const addFilter = govukPrototypeKit.views.addFilter
 
-
-
 addFilter('statusColour', status => {
-    switch (status) {
+    switch(status) {
         case 'Completed': 
-            return 'govuk-tag-magenta'
+            return 'govuk-tag--green'
         case 'Incomplete':
-            return 'govuk-tag--teal'
-        case 'Not yet started':
-            return 'govuk-tag--blue'
-        default:
-            return 'govuk-tag--blue'
+            return 'govuk-tag--yellow'
+        default: 
+            return 'govuk-tag--grey'
     }
 })
+
+
 

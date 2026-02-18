@@ -18,7 +18,6 @@
     <h3 class="govuk-heading-m">About you</h3>
 
       {{ govukTaskList({
-        idPrefix: "about-you",
         items: [
           {
             title: {
@@ -27,9 +26,8 @@
             href: "/application/edit-personal-details/name",
             status: {
               tag: {
-                text: data.personalDetails.status or "Not yet started",
-                classes: "govuk-tag--blue",
-                colour: data.personalDetails.status | statusColour
+                text: data.personalDetails.status or "Not started",
+                classes: data.personalDetails.status | statusColour
               }
             }
           }
@@ -39,7 +37,6 @@
       <h2 class="govuk-heading-m govuk-!-margin-top-5">Experience</h2>
 
       {{ govukTaskList({
-        idPrefix: "your-experience",
         items: [
           {
             title: {
@@ -48,9 +45,8 @@
             href: "/application/edit-experience/juggling-balls",
             status: {
               tag: {
-                text: data.experience.status or "Not yet started",
-                classes: "govuk-tag--blue",
-                colour: data.experience.status | statusColour
+                text: data.experience.status or "Not started",
+                classes: data.experience.status | statusColour
               }
             }
           }
@@ -59,7 +55,6 @@
 
       <h2 class="govuk-heading-m govuk-!-margin-top-5">Evidence</h2>
       {{ govukTaskList({
-        idPrefix: "evidence",
         items: [
           {
             title: {
@@ -68,9 +63,8 @@
             href: "/application/edit-evidence/has-evidence",
             status: {
               tag: {
-              text: data.evidence.status or "Not yet started",
-              classes: "govuk-tag--blue",
-              colour: data.evidence.status | statusColour
+                text: data.evidence.status or "Not started",
+                classes: data.evidence.status | statusColour
               }
             }
           }

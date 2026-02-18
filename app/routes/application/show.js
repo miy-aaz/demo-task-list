@@ -1,6 +1,9 @@
+const appHelper = require('../../helpers/application-helper')
+
 module.exports = router => {
 
     router.get('/application', (req, res) => {
+    
         if(req.session.data.sentDate) {
             res.render('application/show--submitted')
         } else {
@@ -18,16 +21,15 @@ module.exports = router => {
             }
         }
 
-
-
-
+        let personalDetailsStatus =  appHelper.getPersonalDetailsStatus(req.session.data)
 
         res.render('application/show', {
+            personalDetailsStatus,
             completedSectionsCount
         })
 
+        
         }
-
     })
     
 
