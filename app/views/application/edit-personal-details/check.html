@@ -16,41 +16,54 @@
   <div class="govuk-grid-column-two-thirds">
     <span class="govuk-caption-l">Personal details</span>
     <h1 class="govuk-heading-l">{{pageName}}</h1>
-
+    
+    {% if personalDetailsFirstUnansweredQuestion %}
+    <div class="govuk-inset-text app-prompt">
+    {% endif %}
     {% include "./_answers.html" %}
-
-   
-
-    <form novalidate method="post">
-      {{ govukRadios({
-        name: "[personalDetails][status]",
-        fieldset: {
-          legend: {
-            text: "Have you completed this section?",
-            isPageHeading: false,
-            classes: "govuk-fieldset__legend--m"
-          }
-        },
-        hint: {
-          text: "You can still make changes to a completed section"
-        },
-        value: data.personalDetails.status,
-        items: [
-          {
-            value: "Completed",
-            text: "Yes I've completed this section"
-          },
-          {
-            value: "Incomplete",
-            text: "No I'll come back to it later"
-          }
-        ]
-      }) }}
+     {% if personalDetailsFirstUnansweredQuestion %}
+      <p class="app-prompt__text">You must complete personal details before you can send your application.</p>
 
       {{ govukButton({
-        text: "Save and continue"
+        text: "Complete personal details",
+        href: '/application/edit-personal-details/' + personalDetailsFirstUnansweredQuestion
       }) }}
-    </form>
+    </div>
+    {% endif %}
+
+   {% if not personalDetailsFirstUnansweredQuestion %}
+
+      <form novalidate method="post">
+        {{ govukRadios({
+          name: "[personalDetails][status]",
+          fieldset: {
+            legend: {
+              text: "Have you completed this section?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "You can still make changes to a completed section"
+          },
+          value: data.personalDetails.status,
+          items: [
+            {
+              value: "Completed",
+              text: "Yes I've completed this section"
+            },
+            {
+              value: "Incomplete",
+              text: "No I'll come back to it later"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+      </form>
+  {% endif %}
  </div>
 </div>
 

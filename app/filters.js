@@ -12,8 +12,9 @@ addFilter('statusColour', status => {
             return 'govuk-tag--green'
         case 'Incomplete':
             return 'govuk-tag--yellow'
-        default: 
+        default:
             return 'govuk-tag--grey'
+ 
     }
 })
 
