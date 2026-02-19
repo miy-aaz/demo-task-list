@@ -1,3 +1,5 @@
+const appHelper = require('../../helpers/application-helper')
+
 const _ = require('lodash')
 const { v4: uuidv4 } = require('uuid');
 
@@ -41,6 +43,13 @@ module.exports = router => {
             res.redirect('/application/edit-evidence/check')
         }
     })
+
+    router.get('/application/edit-evidence/check', (req, res) => {
+            let evidenceFirstUnansweredQuestion = appHelper.getFirstUnansweredQuestionFromEvidence(req.session.data)
+            res.render('application/edit-evidence/check', {
+                evidenceFirstUnansweredQuestion
+            })
+        })
 
     router.get('/application/edit-evidence/:fileId/delete', (req, res) => {
         let file = req.session.data.evidence.files [req.params.fileId]

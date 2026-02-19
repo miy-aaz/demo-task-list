@@ -24,7 +24,7 @@
               }
             ]
           } if not data.sentDate
-        },
+        } if data.evidence.hasEvidence,
         {
           key: {
             text: "Uploaded evidence"
@@ -41,6 +41,6 @@
               }
             ]
           } if not data.sentDate
-        } if data.evidence.hasEvidence == 'Yes'
+        } if data.evidence.files
       ]
     }) }}

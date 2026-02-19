@@ -35,12 +35,18 @@ module.exports = router => {
             experiencePage = 'check'
         }
 
+        let evidencePage = 'has-evidence'
+        if(evidenceStatus != 'Not started') {
+            evidencePage = 'check'
+        }
+
         res.render('application/show', {
             personalDetailsStatus,
             personalDetailsPage,
             experienceStatus,
             experiencePage,
             evidenceStatus,
+            evidencePage,
             completedSectionsCount
         })
 
