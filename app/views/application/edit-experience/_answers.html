@@ -15,7 +15,7 @@
               }
             ]
           } if not data.sentDate
-        },
+        } if data.experience.numberOfBalls,
         {
           key: {
             text: "What is you rmost impressive juggling trick?"
@@ -32,7 +32,7 @@
               }
             ]
           } if not data.sentDate
-        },
+        } if data.experience.trick,
         {
           key: {
             text: "When did you start juggling?"
@@ -49,6 +49,6 @@
               }
             ]
           } if not data.sentDate
-        }
+        } if data.experience.startDate
       ]
 }) }}
