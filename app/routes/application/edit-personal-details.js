@@ -17,6 +17,8 @@ module.exports = router => {
 
     router.get('/application/edit-personal-details/check', (req, res) => {
         let personalDetailsFirstUnansweredQuestion = appHelper.getFirstUnansweredQuestionFromPersonalDetails(req.session.data)
+
+        
         res.render('application/edit-personal-details/check', {
             personalDetailsFirstUnansweredQuestion
         })

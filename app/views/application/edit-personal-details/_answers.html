@@ -53,6 +53,6 @@
               }
             ]
           } if not data.sentDate
-        } if data.personalDetails.addressLine1
+        } if data.personalDetails.address.line1
       ]
-}) }}
+}) if data.personalDetails.firstName }}

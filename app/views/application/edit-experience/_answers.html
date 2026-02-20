@@ -18,7 +18,7 @@
         } if data.experience.numberOfBalls,
         {
           key: {
-            text: "What is you rmost impressive juggling trick?"
+            text: "What is your most impressive juggling trick?"
           },
           value: {
             text: data.experience.trick
@@ -51,4 +51,4 @@
           } if not data.sentDate
         } if data.experience.startDate
       ]
-}) }}
+}) if data.experience.numberOfBalls}}
